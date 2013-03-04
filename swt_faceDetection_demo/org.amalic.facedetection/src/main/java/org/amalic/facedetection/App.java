@@ -67,11 +67,8 @@ public class App {
 		MatOfRect faceDetections = new MatOfRect();
 		faceDetector.detectMultiScale(image, faceDetections);
 		
-		System.out.println(String.format("detected %s faces", faceDetections.toArray().length));
-		
 		for(Rect rect : faceDetections.toArray())
 			Core.rectangle(image,  new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(0, 255, 0));
-		
 		
 		try {
 			File tempFile = File.createTempFile("detected", ".png");
